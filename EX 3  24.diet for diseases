@@ -1,0 +1,5 @@
+diet(diabetes, [fruits, vegetables, lean_proteins, whole_grains, low-fat_dairy]).
+diet(hypertension, [low-sodium_foods, fruits, vegetables, lean_proteins, whole_grains]).
+suggest_diet(Disease, Diet) :-
+    diet(Disease, Diet),
+    write('Suggested diet for '), write(Disease), write(' is: '), write(Diet), nl.
