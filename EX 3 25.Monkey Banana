@@ -1,0 +1,20 @@
+on(floor,monkey).
+on(floor,chair).
+in(room,monkey).
+in(room,chair).
+in(room,banana).
+at(ceiling,banana).
+strong(monkey).
+grasp(monkey).
+climb(monkey,chair).
+push(monkey,chair):-
+    strong(monkey).
+under(banana,chair):-
+    push(monkey,chair).
+can_reach(banana,monkey):-
+    at(floor,banana);
+    at(ceiling,banana),
+    under(banana,chair),
+    climb(monkey,chair).
+can_get(banana,monkey):-
+    canreach(banana,monkey),grasp(monkey).
