@@ -1,1 +1,29 @@
+<html>
+<head>
+    <title>Event Management System</title>
+</head>
+<body bgcolor="orange">
 
+    <h1 align="center">Welcome to Event Management System</h1>
+<hr><hr><hr>
+<h1 align="right"><font size="7" color="yellow" face="algerian">Event Organiser::K.Pradeep</font></h1>
+
+    <h2>Events</h2>
+    <ul>
+        <li><a href="https://tse3.mm.bing.net/th?id=OIP.I-Bz30PQuCDZV0u0hOIRwQHaEK&pid=Api&P=0&h=220" title="Details of Event 1"><font size="9">Event 1</font></a></li>
+        <li><a href="https://tse4.mm.bing.net/th?id=OIP.AxiV5ERsUCT5d83D52TQ8QHaDF&pid=Api&P=0&h=220" title="Details of Event 2"><font size="9">Event 2</a></font></li>
+        <li><a href="https://tse2.mm.bing.net/th?id=OIP.h2B6lwFzyVr4qyjW0UmAqwHaEK&pid=Api&P=0&h=220" title="Details of Event 3"><font size="9">Event 3</font></a></li>
+    </ul>
+
+    <h2>Register for Event</h2>
+    <ul>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScDLwzH06GPxQxluKq7J9iGmwC-QpcSPokY8mW9LWz_rrRT7A/viewform?usp=sf_link" title="Registration form for Event 1"><font size="9">Event 1</font></a></li>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScDLwzH06GPxQxluKq7J9iGmwC-QpcSPokY8mW9LWz_rrRT7A/viewform?usp=sf_link" title="Registration form for Event 2"><font size="9">Event 2</font></a></li>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScDLwzH06GPxQxluKq7J9iGmwC-QpcSPokY8mW9LWz_rrRT7A/viewform?usp=sf_link" title="Registration form for Event 3"><font size="9">Event 3</font></a></li>
+    </ul>
+n
+    <h2>Contact Us</h2>
+    <p>For any queries or support, please email us at: <a href="mailto:event.management@example.com" title="Email event management team">event.management@example.com</a></p>
+
+</body>
+</html>
