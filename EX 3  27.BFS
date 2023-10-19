@@ -1,0 +1,36 @@
+edge(a, b, 5).
+edge(a, c, 10).
+edge(b, d, 3).
+edge(c, d, 7).
+edge(c, e, 2).
+edge(d, e, 8).
+heuristic(a, E, H) :- endpoint(E, XE, YE), node(a, XA, YA), H is sqrt((XE - XA)^2 + (YE - YA)^2).
+heuristic(b, E, H) :- endpoint(E, XE, YE), node(b, XB, YB), H is sqrt((XE - XB)^2 + (YE - YB)^2).
+heuristic(c, E, H) :- endpoint(E, XE, YE), node(c, XC, YC), H is sqrt((XE - XC)^2 + (YE - YC)^2).
+heuristic(d, E, H) :- endpoint(E, XE, YE), node(d, XD, YD), H is sqrt((XE - XD)^2 + (YE - YD)^2).
+heuristic(e, E, H) :- endpoint(E, XE, YE), node(e, XE, YE), H is 0.
+endpoint(e, 0, 0).
+node(a, 2, 1).
+node(b, 1, 3).
+node(c, 3, 3).
+node(d, 2, 5).
+best_first_search(Start, End, Path, Cost) :-
+    best_first_search(Start, End, [Start], 0, Path, Cost).
+
+best_first_search(End, End, Path, Cost, Path, Cost).
+best_first_search(Current, End, Path, AccCost, FinalPath, FinalCost) :-
+    findall(NewNode, (edge(Current, NewNode, _), not(member(NewNode, Path))), NextNodes),
+    add_heuristic(End, NextNodes, NodesWithHeuristic),
+    find_best_node(NodesWithHeuristic, NextNode, HeuristicValue),
+    edge(Current, NextNode, StepCost),
+    NewCost is AccCost + StepCost,
+    best_first_search(NextNode, End, [NextNode | Path], NewCost, FinalPath, FinalCost).
+find_best_node([Node], Node, _).
+find_best_node([Node1 | Rest], BestNode, BestHeuristic) :-
+    find_best_node(Rest, Node2, Heuristic2),
+    heuristic(Node1, End, Heuristic1),
+    (Heuristic1 < Heuristic2 -> (BestNode = Node1, BestHeuristic = Heuristic1); (BestNode = Node2, BestHeuristic = Heuristic2)).
+add_heuristic(_, [], []).
+add_heuristic(End, [Node | Rest], [(Node, Heuristic) | NodesWithHeuristic]) :-
+    heuristic(Node, End, Heuristic),
+    add_heuristic(End, Rest, NodesWithHeuristic).
